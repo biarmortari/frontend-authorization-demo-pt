@@ -29,6 +29,18 @@ function App() {
     }
   };
 
+  const handleLogin = ({ username, password }) => {
+    if (!username || !password) {
+      return;
+    }
+    auth
+      .authorize(username, password)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(console.error);
+  };
+
   return (
     <Routes>
       <Route
