@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Ducks from "./Ducks";
 import Login from "./Login";
@@ -11,6 +11,8 @@ import "./styles/App.css";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleRegistration = ({
     username,
     email,
@@ -21,7 +23,7 @@ function App() {
       auth
         .register(username, password, email)
         .then(() => {
-          // TODO: manipular registro bem-sucedido
+          navigate("/login");
         })
         .catch(console.error);
     }
