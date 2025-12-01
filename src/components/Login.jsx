@@ -17,6 +17,11 @@ const Login = () => {
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin(data);
+  };
+
   return (
     <div className="login">
       <Logo title={"CryptoDucks"} />
@@ -24,7 +29,7 @@ const Login = () => {
         Esse aplicativo contém informações altamente confidenciais. Faça o login
         ou registre-se para acessar o CryptoDucks.
       </p>
-      <form className="login__form">
+      <form className="login__form" onSubmit={handleSubmit}>
         <label htmlFor="username">Login:</label>
         <input
           id="username"
